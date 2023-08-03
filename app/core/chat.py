@@ -28,9 +28,9 @@ def stop_on_token_callback(token_id, token_string):
     else:
         return True
 
+model = GPT4All(model_p, n_threads=treads, allow_download=False)
 
 def chat(prompt_chat):
-    model = GPT4All(model_p, n_threads=treads, allow_download=False)
     with model.chat_session(system_template, prompt_template):
 
         token = model.generate(
