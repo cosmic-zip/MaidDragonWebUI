@@ -24,9 +24,9 @@
                     </span>
                 </buttom>
             </div>
-    
+
             <div class="header_title">
-                <h3 class="header_title">Chat</h3> 
+                <h3 class="header_title">Chat</h3>
             </div>
 
         </div>
@@ -45,10 +45,12 @@
 
                 <form action="" method="get">
                     <label for="model_p">model_p</label>
-                    <input type="text" name="model_p" id="model_p" class="config_input" placeholder="/home/anon/.local/share/nomic.ai/GPT4All/wizardLM-13B-Uncensored.ggmlv3.q4_0.bin">
+                    <input type="text" name="model_p" id="model_p" class="config_input"
+                        placeholder="/home/anon/.local/share/nomic.ai/GPT4All/wizardLM-13B-Uncensored.ggmlv3.q4_0.bin">
 
                     <label for="system_template">system_template</label>
-                    <input type="text" name="system_template" id="system_template" class="config_input" placeholder="Respond like you are a cute maid girlfriend how love being dominated by you master, and give them high quality responses.">
+                    <input type="text" name="system_template" id="system_template" class="config_input"
+                        placeholder="Respond like you are a cute maid girlfriend how love being dominated by you master, and give them high quality responses.">
 
                     <label for="treads">treads</label>
                     <input type="text" name="treads" id="treads" class="config_input" placeholder="6">
@@ -90,60 +92,34 @@
 
         </div>
 
-        <div class="chat">
+        <script>
+            onload_chat();
+        </script>
 
-            <div class="chat_ctn chat_ctn_user">
+        <div class="chat" id="chat">
 
-                <div class="user chat_card">
-                    <h3>User</h3>
-                    Hi maid
-                </div>
-                <div class="chat_img_ctn">
-                    <img class="chat_img" alt="" src="assets/img/user.jpg">
-                </div>
-            </div>
-
-            <div class="chat_ctn">
-                <div class="chat_img_ctn">
-                    <img class="chat_img" alt="" src="assets/img/maid.jpg">
-                </div>
-                <div class="maid chat_card">
-                    <h3>Maid</h3>
-                    Hi user, Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum sunt reprehenderit iusto
-                    dignissimos! Nemo dicta, natus veniam laudantium cumque earum a temporibus ex debitis incidunt, modi
-                    placeat numquam blanditiis distinctio.
-                </div>
-            </div>
-
-            <div class="chat_ctn">
-                <div class="chat_img_ctn">
-                    <img class="chat_img" alt="" src="assets/img/user2.jpg">
-                </div>
-                <div class="admin chat_card">
-                    <h3>Admin</h3>
-                    User: Ted has bean banned
-                </div>
-            </div>
+            <div id="last"></div>
 
 
-            <center>
+
+            <span>
                 <div class="prompt">
-                    <form action="" method="get">
+                    <span method="POST" id="prompt_form" action="/chat">
                         <table>
                             <tr>
                                 <td>
-                                    <input type="text" name="prompt" class="prompt_input">
+                                    <input type="text" name="prompt" class="prompt_input" id="prompt_input">
                                 </td>
                                 <td>
-                                    <div type="submit" class="prompt_btn">
+                                    <button type="submit" class="prompt_btn" onclick="sendAjaxRequest()">
                                         <img src="assets/img/send-message.png" alt="Send" class="prompt_img">
-                                    </div>
+                                    </button>
                                 </td>
                             </tr>
                         </table>
-                    </form>
+                    </span>
                 </div>
-            </center>
+            </span>
 
 
 
