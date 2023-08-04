@@ -62,19 +62,19 @@ function onload_chat() {
 				count += 1;
 			}
 
-			resultDiv.innerHTML += `
-					<div class="chat_ctn">
-						<div class="chat_img_ctn">
-							<img class="chat_img" alt="" src="assets/img/maid.jpg">
-						</div>
-						<div class="maid chat_card">
-							<h3>Maid</h3>
-					`
-						+ JSON.stringify(responseData["data"][responseData["data"].length - 1][2]) +
-						`
-						</div>
-					</div>
-					` // end
+			// resultDiv.innerHTML += `
+			// 		<div class="chat_ctn">
+			// 			<div class="chat_img_ctn">
+			// 				<img class="chat_img" alt="" src="assets/img/maid.jpg">
+			// 			</div>
+			// 			<div class="maid chat_card">
+			// 				<h3>Maid</h3>
+			// 		`
+			// 			+ JSON.stringify(responseData["data"][responseData["data"].length - 1][2]) +
+			// 			`
+			// 			</div>
+			// 		</div>
+			// 		` // end
 
 		} else {
 			// Request failed

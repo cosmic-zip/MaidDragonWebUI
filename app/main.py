@@ -22,6 +22,7 @@ app.add_middleware(
 )
 
 data = []
+context = ""
 
 
 @app.exception_handler(HTTPException)
@@ -35,7 +36,7 @@ def validation_exception_handler(request, exc):
 
 @app.get("/")
 def read_root():
-    return FileResponse('index.html')
+    return FileResponse('templates/index.html')
 
 @app.get("/history")
 def chat_history():
@@ -46,12 +47,16 @@ def chat_history():
 @app.post("/chat/")
 def chat_api(prompt: str):
 
+
     try:
         chat_us = [
             "{}".format(datetime.now()),
             "user",
             prompt
         ]
+
+        # if context != "":
+        #     prompt = 'context for you "{}", user: "{}"'.format(context, prompt)
 
         response = chat(prompt)
 
@@ -61,10 +66,17 @@ def chat_api(prompt: str):
                 response
             ]
 
+        # for char in response:
+        #     if char == "?":
+        #         context = response
+        #     else: 
+        #         context = ""
+
         data.append(chat_us)
         data.append(chat_md)
 
-        return {
+
+        logs = {
             "status": "success",
             "data": [
                 chat_us,
@@ -72,10 +84,12 @@ def chat_api(prompt: str):
             ]
         }
 
+        log(prompt, logs)
+        return logs
 
-    except Exception as e:
+    except Exception as err:
 
         return  {
-            "status": "success",
-            "data": e
+            "status": "fail",
+            "data": str(err)
         }
