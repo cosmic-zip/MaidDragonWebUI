@@ -1,5 +1,8 @@
 # MaidDragon - An IA Frontend for gpt4all
 
+
+![banner](/doc/banner.png)
+
 ### Description:
 MaidDragon is an ambitious open-source project aimed at developing an intelligent agent (IA) frontend for gpt4all, a local AI model that operates without an internet connection. The project's primary objective is to enable users to interact seamlessly with advanced AI capabilities locally, ensuring data privacy and reducing dependency on external servers.
 
