@@ -1,134 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="shortcut icon" href="assets/img/ico.png" type="image/x-icon">
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/jquery-3.7.0.min.js"></script>
+    <title>Maid Café</title>
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/main.css">
-    <script src="assets/main.js"></script>
-    <script src="assets/jquery-3.7.0.min.js"></script>
-    <title>Chat</title>
-</head>
-
-<body>
-
+  <body>
     <header class="header">
-
-        <div class="header_ctn">
-
-            <div class="header_menu_tg">
-                <buttom class="header_menu_tg_btn" type="submit" onclick="tg_btn()">
-                    <span class="header_title">
-                        <img src="assets/img/settings.png" alt="" width="30px">
-                        <H3>Menu</H3>
-                    </span>
-                </buttom>
-            </div>
-
-            <div class="header_title">
-                <h3 class="header_title">Chat</h3>
-            </div>
-
+      <div class="header_ctn">
+        <div class="header_menu_tg">
+          <buttom class="header_menu_tg_btn" type="submit" onclick="tg_btn()">
+            <span class="header_title">
+              <img src="assets/img/settings.png" alt="" width="30px" />
+              <h3>Menu</h3>
+            </span>
+          </buttom>
         </div>
 
+        <div class="header_title">
+          <h3 class="header_title">Chat</h3>
+        </div>
+      </div>
     </header>
 
     <main class="main">
+      <div class="sidebar" id="sidebar">
+        <div class="sd_header"></div>
 
-        <div class="sidebar" id="sidebar">
+        <div class="config">
+          <form action="" method="get">
+            <label for="model_p">model_p</label>
+            <input
+              type="text"
+              name="model_p"
+              id="model_p"
+              class="config_input"
+              placeholder="/home/anon/.local/share/nomic.ai/GPT4All/wizardLM-13B-Uncensored.ggmlv3.q4_0.bin"
+            />
 
-            <div class="sd_header">
+            <label for="system_template">system_template</label>
+            <input
+              type="text"
+              name="system_template"
+              id="system_template"
+              class="config_input"
+              placeholder="Respond like you are a cute maid girlfriend how love being dominated by you master, and give them high quality responses."
+            />
 
+            <label for="treads">treads</label>
+            <input
+              type="text"
+              name="treads"
+              id="treads"
+              class="config_input"
+              placeholder="6"
+            />
+
+            <label for="max_tokens">max_tokens</label>
+            <input
+              type="text"
+              name="max_tokens"
+              id="max_tokens"
+              class="config_input"
+              placeholder="60"
+            />
+
+            <label for="temp">temp</label>
+            <input
+              type="text"
+              name="temp"
+              id="temp"
+              class="config_input"
+              placeholder="0.6"
+            />
+
+            <label for="top_k">top_k</label>
+            <input
+              type="text"
+              name="top_k"
+              id="top_k"
+              class="config_input"
+              placeholder="40"
+            />
+
+            <label for="top_p">top_p</label>
+            <input
+              type="text"
+              name="top_p"
+              id="top_p"
+              class="config_input"
+              placeholder="0"
+            />
+
+            <label for="repeat_penalty">repeat_penalty</label>
+            <input
+              type="text"
+              name="repeat_penalty"
+              id="repeat_penalty"
+              class="config_input"
+              placeholder="1"
+            />
+
+            <label for="repeat_last_n">repeat_last_n</label>
+            <input
+              type="text"
+              name="repeat_last_n"
+              id="repeat_last_n"
+              class="config_input"
+              placeholder="64"
+            />
+
+            <label for="n_batch">n_batch</label>
+            <input
+              type="text"
+              name="n_batch"
+              id="n_batch"
+              class="config_input"
+              placeholder="8"
+            />
+
+            <label for="n_predict">n_predict</label>
+            <input
+              type="text"
+              name="n_predict"
+              id="n_predict"
+              class="config_input"
+              placeholder="None"
+            />
+
+            <label for="streaming">streaming</label>
+            <input
+              type="text"
+              name="streaming"
+              id="streaming"
+              class="config_input"
+              placeholder="False"
+            />
+
+            <div class="sd_header_save_ctn">
+              <button type="submit" class="sd_header_save_btn">Save</button>
             </div>
-
-            <div class="config">
-
-                <form action="" method="get">
-                    <label for="model_p">model_p</label>
-                    <input type="text" name="model_p" id="model_p" class="config_input"
-                        placeholder="/home/anon/.local/share/nomic.ai/GPT4All/wizardLM-13B-Uncensored.ggmlv3.q4_0.bin">
-
-                    <label for="system_template">system_template</label>
-                    <input type="text" name="system_template" id="system_template" class="config_input"
-                        placeholder="Respond like you are a cute maid girlfriend how love being dominated by you master, and give them high quality responses.">
-
-                    <label for="treads">treads</label>
-                    <input type="text" name="treads" id="treads" class="config_input" placeholder="6">
-
-                    <label for="max_tokens">max_tokens</label>
-                    <input type="text" name="max_tokens" id="max_tokens" class="config_input" placeholder="60">
-
-                    <label for="temp">temp</label>
-                    <input type="text" name="temp" id="temp" class="config_input" placeholder="0.6">
-
-                    <label for="top_k">top_k</label>
-                    <input type="text" name="top_k" id="top_k" class="config_input" placeholder="40">
-
-                    <label for="top_p">top_p</label>
-                    <input type="text" name="top_p" id="top_p" class="config_input" placeholder="0">
-
-                    <label for="repeat_penalty">repeat_penalty</label>
-                    <input type="text" name="repeat_penalty" id="repeat_penalty" class="config_input" placeholder="1">
-
-                    <label for="repeat_last_n">repeat_last_n</label>
-                    <input type="text" name="repeat_last_n" id="repeat_last_n" class="config_input" placeholder="64">
-
-                    <label for="n_batch">n_batch</label>
-                    <input type="text" name="n_batch" id="n_batch" class="config_input" placeholder="8">
-
-                    <label for="n_predict">n_predict</label>
-                    <input type="text" name="n_predict" id="n_predict" class="config_input" placeholder="None">
-
-                    <label for="streaming">streaming</label>
-                    <input type="text" name="streaming" id="streaming" class="config_input" placeholder="False">
-
-
-                    <div class="sd_header_save_ctn">
-                        <button type="submit" class="sd_header_save_btn">Save</button>
-                    </div>
-                </form>
-
-            </div>
-
+          </form>
         </div>
+      </div>
 
-        <script>
-            onload_chat();
-        </script>
+      <script>
+        onload_chat();
+      </script>
 
-        <div class="chat" id="chat">
+      <div class="chat" id="chat">
+        <div id="last"></div>
 
-            <div id="last"></div>
-
-
-
-            <span>
-                <div class="prompt">
-                    <span method="POST" id="prompt_form" action="/chat">
-                        <table>
-                            <tr>
-                                <td>
-                                    <input type="text" name="prompt" class="prompt_input" id="prompt_input">
-                                </td>
-                                <td>
-                                    <button type="submit" class="prompt_btn" onclick="sendAjaxRequest()">
-                                        <img src="assets/img/send-message.png" alt="Send" class="prompt_img">
-                                    </button>
-                                </td>
-                            </tr>
-                        </table>
-                    </span>
-                </div>
+        <span>
+          <div class="prompt">
+            <span method="POST" id="prompt_form" action="/chat">
+              <table>
+                <tr>
+                  <td>
+                    <input
+                      type="text"
+                      name="prompt"
+                      class="prompt_input"
+                      id="prompt_input"
+                    />
+                  </td>
+                  <td>
+                    <button
+                      type="submit"
+                      class="prompt_btn"
+                      onclick="sendAjaxRequest()"
+                    >
+                      <img
+                        src="assets/img/send-message.png"
+                        alt="Send"
+                        class="prompt_img"
+                      />
+                    </button>
+                  </td>
+                </tr>
+              </table>
             </span>
-
-
-
-        </div>
-
-
-
+          </div>
+        </span>
+      </div>
     </main>
-
-</body>
-
+  </body>
 </html>

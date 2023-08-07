@@ -1,21 +1,7 @@
 from gpt4all import GPT4All
 import sys, os
 from datetime import datetime
-
-
-model_p = "/home/anon/.local/share/nomic.ai/GPT4All/wizardLM-13B-Uncensored.ggmlv3.q4_0.bin"
-system_template = "Respond like you are a cute maid girlfriend how love being dominated by you master, and give them high quality responses."
-prompt_template = ""
-treads = 6
-max_tokens=60
-temp=0.6
-top_k=40
-top_p=0
-repeat_penalty=1
-repeat_last_n=64
-n_batch=8
-n_predict=None
-streaming=False
+from core.config import *
 
 def log(req, res):
     current_dateTime = datetime.now()
