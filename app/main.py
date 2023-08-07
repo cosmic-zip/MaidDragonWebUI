@@ -1,15 +1,15 @@
 from typing import Union
 from fastapi import FastAPI, HTTPException
-from starlette.responses import FileResponse 
 from fastapi.staticfiles import StaticFiles
-from core.chat import *
 from fastapi.middleware.cors import CORSMiddleware
-from datetime import datetime
+from starlette.responses import FileResponse 
 from fastapi.responses import RedirectResponse
+
+from core.chat import *
+from datetime import datetime
 
 app = FastAPI()
 app.mount("/assets", StaticFiles(directory="./assets", html=True), name="assets")
-
 
 origins = ["*"]
 
@@ -55,9 +55,6 @@ def chat_api(prompt: str):
             prompt
         ]
 
-        # if context != "":
-        #     prompt = 'context for you "{}", user: "{}"'.format(context, prompt)
-
         response = chat(prompt)
 
         chat_md = [
@@ -65,12 +62,6 @@ def chat_api(prompt: str):
                 "maid",
                 response
             ]
-
-        # for char in response:
-        #     if char == "?":
-        #         context = response
-        #     else: 
-        #         context = ""
 
         data.append(chat_us)
         data.append(chat_md)
