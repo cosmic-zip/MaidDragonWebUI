@@ -1,9 +1,10 @@
 import os
+from core.model import model_name, context
 
 pwd = os.getcwd()
 
-model_p = "{}/checkpoint/wizardLM-13B-Uncensored.ggmlv3.q4_0.bin".format(pwd)
-system_template = "Respond like you are a cute maid girlfriend how love being dominated by you master, and give them high quality responses."
+model_p = "{}/checkpoint/{}".format(pwd, model_name)
+system_template = context
 prompt_template = ""
 treads = 6
 max_tokens=60
