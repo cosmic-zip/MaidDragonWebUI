@@ -29,7 +29,7 @@ def chat(prompt_chat):
                 repeat_last_n=repeat_last_n,
                 n_batch=n_batch,
                 n_predict=n_predict,
-                streaming=streaming,
+                streaming=False,
                 callback=stop_on_token_callback
         )
 

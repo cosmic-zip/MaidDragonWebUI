@@ -46,9 +46,10 @@ def chat_history():
 
 @app.post("/chat/")
 def chat_api(prompt: str):
-
-
     try:
+
+        print(prompt)
+
         chat_us = [
             "{}".format(datetime.now()),
             "user",

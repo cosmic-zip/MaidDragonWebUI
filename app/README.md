@@ -27,5 +27,4 @@ Please ensure that you use the exact same model name both inside the /app/checkp
 
 ```bash
 chmod +x server.sh
-./server.sh
 ```

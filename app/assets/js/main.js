@@ -27,7 +27,7 @@ function onload_chat() {
 			var responseData = JSON.parse(xhr.responseText);
 			var resultDiv = document.getElementById('chat');
 
-			for(count in responseData["data"]) {
+			for (count in responseData["data"]) {
 				if (responseData["data"][count][1] == "user") {
 					resultDiv.innerHTML += `
 					<div class="chat_ctn chat_ctn_user">
@@ -62,20 +62,6 @@ function onload_chat() {
 				count += 1;
 			}
 
-			// resultDiv.innerHTML += `
-			// 		<div class="chat_ctn">
-			// 			<div class="chat_img_ctn">
-			// 				<img class="chat_img" alt="" src="assets/img/maid.jpg">
-			// 			</div>
-			// 			<div class="maid chat_card">
-			// 				<h3>Maid</h3>
-			// 		`
-			// 			+ JSON.stringify(responseData["data"][responseData["data"].length - 1][2]) +
-			// 			`
-			// 			</div>
-			// 		</div>
-			// 		` // end
-
 		} else {
 			// Request failed
 			console.error('Request failed with status ' + xhr.status);
@@ -92,47 +78,34 @@ function onload_chat() {
 }
 function sendAjaxRequest() {
 	// Get the prompt parameter from the input field
-	const promptParameter = document.getElementById('prompt_input').value;
-	console.log("##############" + promptParameter);
+	const promptParameter = document.getElementById('prompt_input').value.trim();
 
-	if (promptParameter.trim() !== '') {
+	if (promptParameter !== '') {
 		// Create a new XMLHttpRequest object
 		const xhr = new XMLHttpRequest();
 
 		// URL to send the POST request to
-		const url = `/chat/?prompt=${promptParameter}`;
-
-		// Data to send in the POST request (if needed)
-		const data = {
-			prompt: promptParameter
-		};
-
-		// Convert the data to JSON format
-		const jsonData = JSON.stringify(data);
+		const url = `/chat/?prompt=${encodeURIComponent(promptParameter)}`;
 
 		// Set up the request
 		xhr.open('POST', url, true);
 		xhr.setRequestHeader('Content-Type', 'application/json');
 
-		// Send the request with the JSON data
-		xhr.send(jsonData);
-
 		// Handle the response
-		xhr.onreadystatechange = function () {
-			if (xhr.readyState === XMLHttpRequest.DONE) {
-				if (xhr.status === 200) {
-					// Request was successful
-					console.log('Response:', xhr.responseText);
-					location.reload();
-				} else {
-					// Request failed
-					console.error('Request failed. Status:', xhr.status);
-				}
+		xhr.onload = function () {
+			if (xhr.status === 200) {
+				// Request was successful
+				console.log('Response:', xhr.responseText);
+				location.reload();
+			} else {
+				// Request failed
+				console.error('Request failed. Status:', xhr.status);
 			}
 		};
 
+		// Send the request
+		xhr.send();
 	} else {
-		console.log("error caralho")
+		console.log("Error: Input is empty.");
 	}
-
 }

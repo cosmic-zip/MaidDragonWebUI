@@ -5,6 +5,7 @@ h3 {
 body {
     margin: 0px;
     background-color: rgb(11, 10, 25);
+    font-family: sans-serif;
 }
 
 
@@ -52,7 +53,7 @@ body {
     padding: 10px;
     width: 50vh;
     display: none;
-    overflow-y:scroll;
+    overflow-y: scroll;
     height: calc(100vh - 160px);
 }
 
@@ -87,7 +88,7 @@ body {
     color: aliceblue;
     display: flex;
     justify-content: center;
-    /* background-image: url("img/map.png"); */
+    background-image: url("../img/cute.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -142,7 +143,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(11, 10, 25);
+    background-color: rgb(4, 0, 60);
 }
 
 .prompt_input {
