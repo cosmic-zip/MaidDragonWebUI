@@ -105,6 +105,7 @@ function sendAjaxRequest() {
 
 		// Send the request
 		xhr.send();
+		alert("processing...");
 	} else {
 		console.log("Error: Input is empty.");
 	}
